@@ -1,25 +1,19 @@
 // Axita Infrastructure ERP - Vite Configuration
-// Production-ready TanStack Start SSR setup with Nitro backend
+// TanStack Start SSR, deployed to Netlify via the official Netlify plugin
 import { defineConfig } from "vite";
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { nitro } from "nitro/vite";
+import netlify from "@netlify/vite-plugin-tanstack-start";
 
 export default defineConfig({
   plugins: [
-    TanStackRouterVite(),
+    tanstackStart(),
     react(),
     tailwindcss(),
     tsconfigPaths(),
-    nitro({
-      prerender: {
-        crawlLinks: false,
-        routes: ['/sitemap.xml'],
-        ignore: ['/admin']
-      }
-    }),
+    netlify(),
   ],
   build: {
     target: "esnext",
