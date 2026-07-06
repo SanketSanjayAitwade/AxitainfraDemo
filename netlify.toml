@@ -3,7 +3,7 @@
 
 [build]
   # Build command - Nitro will auto-detect Netlify environment
-  command = "npm run build"
+  command = "NITRO_PRESET=netlify npm run build"
   # Publish directory containing static assets
   publish = "dist"
   # Functions directory (internal, auto-generated during build)
@@ -14,6 +14,7 @@
   from = "/*"
   to = "/.netlify/functions/server"
   status = 200
+  force = true
 
 # Cache static assets aggressively
 [[headers]]
