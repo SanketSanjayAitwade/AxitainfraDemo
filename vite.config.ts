@@ -13,7 +13,13 @@ export default defineConfig({
     react(),
     tailwindcss(),
     tsconfigPaths(),
-    nitro(),
+    nitro({
+      prerender: {
+        crawlLinks: false,
+        routes: ['/sitemap.xml'],
+        ignore: ['/admin']
+      }
+    }),
   ],
   build: {
     target: "esnext",

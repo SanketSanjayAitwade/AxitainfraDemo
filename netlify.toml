@@ -9,12 +9,18 @@
   # Functions directory (internal, auto-generated during build)
   functions = ".netlify/functions-internal"
 
-# Redirect all non-matching routes to the SSR handler for TanStack Start
+# Redirect all routes to the server function for SSR
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"
   status = 200
   force = true
+
+# Skip redirects for assets
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
 
 # Cache static assets aggressively
 [[headers]]
