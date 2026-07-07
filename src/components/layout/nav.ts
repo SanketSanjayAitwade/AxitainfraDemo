@@ -1,6 +1,17 @@
 import {
-  LayoutDashboard, Building2, Grid3x3, ListChecks, Package, HardHat,
-  CheckCircle2, BarChart3, ShieldCheck, Users, Settings, type LucideIcon,
+  LayoutDashboard,
+  Building2,
+  Grid3x3,
+  ListChecks,
+  Package,
+  HardHat,
+  CheckCircle2,
+  BarChart3,
+  ShieldCheck,
+  Users,
+  Settings,
+  ScanFace,
+  type LucideIcon,
 } from "lucide-react";
 
 export interface NavItem {
@@ -15,14 +26,18 @@ export const navItems: NavItem[] = [
   { label: "Projects", to: "/projects", icon: Building2 },
   { label: "Project Matrix", to: "/matrix", icon: Grid3x3 },
   {
-    label: "Tasks & DPR", to: "/tasks", icon: ListChecks,
+    label: "Tasks & DPR",
+    to: "/tasks",
+    icon: ListChecks,
     children: [
       { label: "All Tasks", to: "/tasks" },
       { label: "Daily DPR", to: "/dpr" },
     ],
   },
   {
-    label: "Materials", to: "/materials", icon: Package,
+    label: "Materials",
+    to: "/materials",
+    icon: Package,
     children: [
       { label: "Overview", to: "/materials" },
       { label: "Requests", to: "/materials/requests" },
@@ -32,12 +47,28 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Labour", to: "/labour", icon: HardHat,
+    label: "Labour",
+    to: "/labour",
+    icon: HardHat,
     children: [
       { label: "Overview", to: "/labour" },
       { label: "Attendance", to: "/labour/attendance" },
       { label: "Contractors", to: "/labour/contractors" },
       { label: "Productivity", to: "/labour/productivity" },
+    ],
+  },
+  {
+    label: "HR & Employee Tracking",
+    to: "/hr",
+    icon: ScanFace,
+    children: [
+      { label: "Dashboard", to: "/hr" },
+      { label: "Attendance", to: "/hr/attendance" },
+      { label: "Leave", to: "/hr/leave" },
+      { label: "Payroll", to: "/hr/payroll" },
+      { label: "Live Tracking", to: "/hr/tracking" },
+      { label: "Reports", to: "/hr/reports" },
+      { label: "Settings", to: "/hr/settings" },
     ],
   },
   { label: "Approvals", to: "/approvals", icon: CheckCircle2 },

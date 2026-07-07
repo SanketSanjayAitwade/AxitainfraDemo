@@ -24,6 +24,7 @@ import { Route as AppTasksIndexRouteImport } from './routes/_app.tasks.index'
 import { Route as AppProjectsIndexRouteImport } from './routes/_app.projects.index'
 import { Route as AppMaterialsIndexRouteImport } from './routes/_app.materials.index'
 import { Route as AppLabourIndexRouteImport } from './routes/_app.labour.index'
+import { Route as AppHrIndexRouteImport } from './routes/_app.hr.index'
 import { Route as AppTasksIdRouteImport } from './routes/_app.tasks.$id'
 import { Route as AppProjectsIdRouteImport } from './routes/_app.projects.$id'
 import { Route as AppMaterialsRequestsRouteImport } from './routes/_app.materials.requests'
@@ -33,6 +34,12 @@ import { Route as AppMaterialsGrnRouteImport } from './routes/_app.materials.grn
 import { Route as AppLabourProductivityRouteImport } from './routes/_app.labour.productivity'
 import { Route as AppLabourContractorsRouteImport } from './routes/_app.labour.contractors'
 import { Route as AppLabourAttendanceRouteImport } from './routes/_app.labour.attendance'
+import { Route as AppHrTrackingRouteImport } from './routes/_app.hr.tracking'
+import { Route as AppHrSettingsRouteImport } from './routes/_app.hr.settings'
+import { Route as AppHrReportsRouteImport } from './routes/_app.hr.reports'
+import { Route as AppHrPayrollRouteImport } from './routes/_app.hr.payroll'
+import { Route as AppHrLeaveRouteImport } from './routes/_app.hr.leave'
+import { Route as AppHrAttendanceRouteImport } from './routes/_app.hr.attendance'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -108,6 +115,11 @@ const AppLabourIndexRoute = AppLabourIndexRouteImport.update({
   path: '/labour/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppHrIndexRoute = AppHrIndexRouteImport.update({
+  id: '/hr/',
+  path: '/hr/',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppTasksIdRoute = AppTasksIdRouteImport.update({
   id: '/tasks/$id',
   path: '/tasks/$id',
@@ -154,6 +166,36 @@ const AppLabourAttendanceRoute = AppLabourAttendanceRouteImport.update({
   path: '/labour/attendance',
   getParentRoute: () => AppRoute,
 } as any)
+const AppHrTrackingRoute = AppHrTrackingRouteImport.update({
+  id: '/hr/tracking',
+  path: '/hr/tracking',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHrSettingsRoute = AppHrSettingsRouteImport.update({
+  id: '/hr/settings',
+  path: '/hr/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHrReportsRoute = AppHrReportsRouteImport.update({
+  id: '/hr/reports',
+  path: '/hr/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHrPayrollRoute = AppHrPayrollRouteImport.update({
+  id: '/hr/payroll',
+  path: '/hr/payroll',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHrLeaveRoute = AppHrLeaveRouteImport.update({
+  id: '/hr/leave',
+  path: '/hr/leave',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHrAttendanceRoute = AppHrAttendanceRouteImport.update({
+  id: '/hr/attendance',
+  path: '/hr/attendance',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -166,6 +208,12 @@ export interface FileRoutesByFullPath {
   '/roles': typeof AppRolesRoute
   '/settings': typeof AppSettingsRoute
   '/users': typeof AppUsersRoute
+  '/hr/attendance': typeof AppHrAttendanceRoute
+  '/hr/leave': typeof AppHrLeaveRoute
+  '/hr/payroll': typeof AppHrPayrollRoute
+  '/hr/reports': typeof AppHrReportsRoute
+  '/hr/settings': typeof AppHrSettingsRoute
+  '/hr/tracking': typeof AppHrTrackingRoute
   '/labour/attendance': typeof AppLabourAttendanceRoute
   '/labour/contractors': typeof AppLabourContractorsRoute
   '/labour/productivity': typeof AppLabourProductivityRoute
@@ -175,6 +223,7 @@ export interface FileRoutesByFullPath {
   '/materials/requests': typeof AppMaterialsRequestsRoute
   '/projects/$id': typeof AppProjectsIdRoute
   '/tasks/$id': typeof AppTasksIdRoute
+  '/hr/': typeof AppHrIndexRoute
   '/labour/': typeof AppLabourIndexRoute
   '/materials/': typeof AppMaterialsIndexRoute
   '/projects/': typeof AppProjectsIndexRoute
@@ -191,6 +240,12 @@ export interface FileRoutesByTo {
   '/roles': typeof AppRolesRoute
   '/settings': typeof AppSettingsRoute
   '/users': typeof AppUsersRoute
+  '/hr/attendance': typeof AppHrAttendanceRoute
+  '/hr/leave': typeof AppHrLeaveRoute
+  '/hr/payroll': typeof AppHrPayrollRoute
+  '/hr/reports': typeof AppHrReportsRoute
+  '/hr/settings': typeof AppHrSettingsRoute
+  '/hr/tracking': typeof AppHrTrackingRoute
   '/labour/attendance': typeof AppLabourAttendanceRoute
   '/labour/contractors': typeof AppLabourContractorsRoute
   '/labour/productivity': typeof AppLabourProductivityRoute
@@ -200,6 +255,7 @@ export interface FileRoutesByTo {
   '/materials/requests': typeof AppMaterialsRequestsRoute
   '/projects/$id': typeof AppProjectsIdRoute
   '/tasks/$id': typeof AppTasksIdRoute
+  '/hr': typeof AppHrIndexRoute
   '/labour': typeof AppLabourIndexRoute
   '/materials': typeof AppMaterialsIndexRoute
   '/projects': typeof AppProjectsIndexRoute
@@ -218,6 +274,12 @@ export interface FileRoutesById {
   '/_app/roles': typeof AppRolesRoute
   '/_app/settings': typeof AppSettingsRoute
   '/_app/users': typeof AppUsersRoute
+  '/_app/hr/attendance': typeof AppHrAttendanceRoute
+  '/_app/hr/leave': typeof AppHrLeaveRoute
+  '/_app/hr/payroll': typeof AppHrPayrollRoute
+  '/_app/hr/reports': typeof AppHrReportsRoute
+  '/_app/hr/settings': typeof AppHrSettingsRoute
+  '/_app/hr/tracking': typeof AppHrTrackingRoute
   '/_app/labour/attendance': typeof AppLabourAttendanceRoute
   '/_app/labour/contractors': typeof AppLabourContractorsRoute
   '/_app/labour/productivity': typeof AppLabourProductivityRoute
@@ -227,6 +289,7 @@ export interface FileRoutesById {
   '/_app/materials/requests': typeof AppMaterialsRequestsRoute
   '/_app/projects/$id': typeof AppProjectsIdRoute
   '/_app/tasks/$id': typeof AppTasksIdRoute
+  '/_app/hr/': typeof AppHrIndexRoute
   '/_app/labour/': typeof AppLabourIndexRoute
   '/_app/materials/': typeof AppMaterialsIndexRoute
   '/_app/projects/': typeof AppProjectsIndexRoute
@@ -245,6 +308,12 @@ export interface FileRouteTypes {
     | '/roles'
     | '/settings'
     | '/users'
+    | '/hr/attendance'
+    | '/hr/leave'
+    | '/hr/payroll'
+    | '/hr/reports'
+    | '/hr/settings'
+    | '/hr/tracking'
     | '/labour/attendance'
     | '/labour/contractors'
     | '/labour/productivity'
@@ -254,6 +323,7 @@ export interface FileRouteTypes {
     | '/materials/requests'
     | '/projects/$id'
     | '/tasks/$id'
+    | '/hr/'
     | '/labour/'
     | '/materials/'
     | '/projects/'
@@ -270,6 +340,12 @@ export interface FileRouteTypes {
     | '/roles'
     | '/settings'
     | '/users'
+    | '/hr/attendance'
+    | '/hr/leave'
+    | '/hr/payroll'
+    | '/hr/reports'
+    | '/hr/settings'
+    | '/hr/tracking'
     | '/labour/attendance'
     | '/labour/contractors'
     | '/labour/productivity'
@@ -279,6 +355,7 @@ export interface FileRouteTypes {
     | '/materials/requests'
     | '/projects/$id'
     | '/tasks/$id'
+    | '/hr'
     | '/labour'
     | '/materials'
     | '/projects'
@@ -296,6 +373,12 @@ export interface FileRouteTypes {
     | '/_app/roles'
     | '/_app/settings'
     | '/_app/users'
+    | '/_app/hr/attendance'
+    | '/_app/hr/leave'
+    | '/_app/hr/payroll'
+    | '/_app/hr/reports'
+    | '/_app/hr/settings'
+    | '/_app/hr/tracking'
     | '/_app/labour/attendance'
     | '/_app/labour/contractors'
     | '/_app/labour/productivity'
@@ -305,6 +388,7 @@ export interface FileRouteTypes {
     | '/_app/materials/requests'
     | '/_app/projects/$id'
     | '/_app/tasks/$id'
+    | '/_app/hr/'
     | '/_app/labour/'
     | '/_app/materials/'
     | '/_app/projects/'
@@ -424,6 +508,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppLabourIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/hr/': {
+      id: '/_app/hr/'
+      path: '/hr'
+      fullPath: '/hr/'
+      preLoaderRoute: typeof AppHrIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/tasks/$id': {
       id: '/_app/tasks/$id'
       path: '/tasks/$id'
@@ -487,6 +578,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppLabourAttendanceRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/hr/tracking': {
+      id: '/_app/hr/tracking'
+      path: '/hr/tracking'
+      fullPath: '/hr/tracking'
+      preLoaderRoute: typeof AppHrTrackingRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/hr/settings': {
+      id: '/_app/hr/settings'
+      path: '/hr/settings'
+      fullPath: '/hr/settings'
+      preLoaderRoute: typeof AppHrSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/hr/reports': {
+      id: '/_app/hr/reports'
+      path: '/hr/reports'
+      fullPath: '/hr/reports'
+      preLoaderRoute: typeof AppHrReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/hr/payroll': {
+      id: '/_app/hr/payroll'
+      path: '/hr/payroll'
+      fullPath: '/hr/payroll'
+      preLoaderRoute: typeof AppHrPayrollRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/hr/leave': {
+      id: '/_app/hr/leave'
+      path: '/hr/leave'
+      fullPath: '/hr/leave'
+      preLoaderRoute: typeof AppHrLeaveRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/hr/attendance': {
+      id: '/_app/hr/attendance'
+      path: '/hr/attendance'
+      fullPath: '/hr/attendance'
+      preLoaderRoute: typeof AppHrAttendanceRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
@@ -499,6 +632,12 @@ interface AppRouteChildren {
   AppRolesRoute: typeof AppRolesRoute
   AppSettingsRoute: typeof AppSettingsRoute
   AppUsersRoute: typeof AppUsersRoute
+  AppHrAttendanceRoute: typeof AppHrAttendanceRoute
+  AppHrLeaveRoute: typeof AppHrLeaveRoute
+  AppHrPayrollRoute: typeof AppHrPayrollRoute
+  AppHrReportsRoute: typeof AppHrReportsRoute
+  AppHrSettingsRoute: typeof AppHrSettingsRoute
+  AppHrTrackingRoute: typeof AppHrTrackingRoute
   AppLabourAttendanceRoute: typeof AppLabourAttendanceRoute
   AppLabourContractorsRoute: typeof AppLabourContractorsRoute
   AppLabourProductivityRoute: typeof AppLabourProductivityRoute
@@ -508,6 +647,7 @@ interface AppRouteChildren {
   AppMaterialsRequestsRoute: typeof AppMaterialsRequestsRoute
   AppProjectsIdRoute: typeof AppProjectsIdRoute
   AppTasksIdRoute: typeof AppTasksIdRoute
+  AppHrIndexRoute: typeof AppHrIndexRoute
   AppLabourIndexRoute: typeof AppLabourIndexRoute
   AppMaterialsIndexRoute: typeof AppMaterialsIndexRoute
   AppProjectsIndexRoute: typeof AppProjectsIndexRoute
@@ -523,6 +663,12 @@ const AppRouteChildren: AppRouteChildren = {
   AppRolesRoute: AppRolesRoute,
   AppSettingsRoute: AppSettingsRoute,
   AppUsersRoute: AppUsersRoute,
+  AppHrAttendanceRoute: AppHrAttendanceRoute,
+  AppHrLeaveRoute: AppHrLeaveRoute,
+  AppHrPayrollRoute: AppHrPayrollRoute,
+  AppHrReportsRoute: AppHrReportsRoute,
+  AppHrSettingsRoute: AppHrSettingsRoute,
+  AppHrTrackingRoute: AppHrTrackingRoute,
   AppLabourAttendanceRoute: AppLabourAttendanceRoute,
   AppLabourContractorsRoute: AppLabourContractorsRoute,
   AppLabourProductivityRoute: AppLabourProductivityRoute,
@@ -532,6 +678,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppMaterialsRequestsRoute: AppMaterialsRequestsRoute,
   AppProjectsIdRoute: AppProjectsIdRoute,
   AppTasksIdRoute: AppTasksIdRoute,
+  AppHrIndexRoute: AppHrIndexRoute,
   AppLabourIndexRoute: AppLabourIndexRoute,
   AppMaterialsIndexRoute: AppMaterialsIndexRoute,
   AppProjectsIndexRoute: AppProjectsIndexRoute,
