@@ -1,15 +1,6 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import {
-  HardHat,
-  ArrowRight,
-  ShieldCheck,
-  Package,
-  HardHat as Hat,
-  BarChart3,
-  BriefcaseBusiness,
-} from "lucide-react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { HardHat, ArrowRight, ShieldCheck, Package, HardHat as Hat, BarChart3 } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { useDemo } from "@/store/DemoStore";
 
 export const Route = createFileRoute("/")({
@@ -28,7 +19,6 @@ const highlights = [
   { icon: Package, text: "Material request → PO → GRN → stock" },
   { icon: Hat, text: "Labour attendance & productivity" },
   { icon: BarChart3, text: "Real-time project health analytics" },
-  { icon: BriefcaseBusiness, text: "Separate HR module with employee tracking" },
 ];
 
 function Login() {
@@ -99,14 +89,6 @@ function Login() {
           <p className="mt-1 text-sm text-muted-foreground">
             Choose a role to explore the demo with tailored permissions.
           </p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            <Button asChild variant="outline">
-              <Link to="/hr">Open HR module</Link>
-            </Button>
-            <Button asChild variant="secondary">
-              <Link to="/dashboard">Open main ERP</Link>
-            </Button>
-          </div>
           <div className="mt-6 space-y-3">
             {logins.map((l) => (
               <button

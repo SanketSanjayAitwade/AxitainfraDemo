@@ -12,16 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as HrIndexRouteImport } from './routes/hr/index'
-import { Route as HrTrackingRouteImport } from './routes/hr/tracking'
-import { Route as HrReportsRouteImport } from './routes/hr/reports'
-import { Route as HrRecruitmentRouteImport } from './routes/hr/recruitment'
-import { Route as HrPayrollRouteImport } from './routes/hr/payroll'
-import { Route as HrOnboardingRouteImport } from './routes/hr/onboarding'
-import { Route as HrLeaveRouteImport } from './routes/hr/leave'
-import { Route as HrEmployeesRouteImport } from './routes/hr/employees'
-import { Route as HrAttendanceRouteImport } from './routes/hr/attendance'
-import { Route as HrLayoutRouteImport } from './routes/hr/_layout'
 import { Route as AppUsersRouteImport } from './routes/_app.users'
 import { Route as AppSettingsRouteImport } from './routes/_app.settings'
 import { Route as AppRolesRouteImport } from './routes/_app.roles'
@@ -56,56 +46,6 @@ const AppRoute = AppRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrIndexRoute = HrIndexRouteImport.update({
-  id: '/hr/',
-  path: '/hr/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrTrackingRoute = HrTrackingRouteImport.update({
-  id: '/hr/tracking',
-  path: '/hr/tracking',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrReportsRoute = HrReportsRouteImport.update({
-  id: '/hr/reports',
-  path: '/hr/reports',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrRecruitmentRoute = HrRecruitmentRouteImport.update({
-  id: '/hr/recruitment',
-  path: '/hr/recruitment',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrPayrollRoute = HrPayrollRouteImport.update({
-  id: '/hr/payroll',
-  path: '/hr/payroll',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrOnboardingRoute = HrOnboardingRouteImport.update({
-  id: '/hr/onboarding',
-  path: '/hr/onboarding',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrLeaveRoute = HrLeaveRouteImport.update({
-  id: '/hr/leave',
-  path: '/hr/leave',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrEmployeesRoute = HrEmployeesRouteImport.update({
-  id: '/hr/employees',
-  path: '/hr/employees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrAttendanceRoute = HrAttendanceRouteImport.update({
-  id: '/hr/attendance',
-  path: '/hr/attendance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HrLayoutRoute = HrLayoutRouteImport.update({
-  id: '/hr/_layout',
-  path: '/hr',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppUsersRoute = AppUsersRouteImport.update({
@@ -226,16 +166,6 @@ export interface FileRoutesByFullPath {
   '/roles': typeof AppRolesRoute
   '/settings': typeof AppSettingsRoute
   '/users': typeof AppUsersRoute
-  '/hr': typeof HrLayoutRoute
-  '/hr/attendance': typeof HrAttendanceRoute
-  '/hr/employees': typeof HrEmployeesRoute
-  '/hr/leave': typeof HrLeaveRoute
-  '/hr/onboarding': typeof HrOnboardingRoute
-  '/hr/payroll': typeof HrPayrollRoute
-  '/hr/recruitment': typeof HrRecruitmentRoute
-  '/hr/reports': typeof HrReportsRoute
-  '/hr/tracking': typeof HrTrackingRoute
-  '/hr/': typeof HrIndexRoute
   '/labour/attendance': typeof AppLabourAttendanceRoute
   '/labour/contractors': typeof AppLabourContractorsRoute
   '/labour/productivity': typeof AppLabourProductivityRoute
@@ -261,15 +191,6 @@ export interface FileRoutesByTo {
   '/roles': typeof AppRolesRoute
   '/settings': typeof AppSettingsRoute
   '/users': typeof AppUsersRoute
-  '/hr': typeof HrIndexRoute
-  '/hr/attendance': typeof HrAttendanceRoute
-  '/hr/employees': typeof HrEmployeesRoute
-  '/hr/leave': typeof HrLeaveRoute
-  '/hr/onboarding': typeof HrOnboardingRoute
-  '/hr/payroll': typeof HrPayrollRoute
-  '/hr/recruitment': typeof HrRecruitmentRoute
-  '/hr/reports': typeof HrReportsRoute
-  '/hr/tracking': typeof HrTrackingRoute
   '/labour/attendance': typeof AppLabourAttendanceRoute
   '/labour/contractors': typeof AppLabourContractorsRoute
   '/labour/productivity': typeof AppLabourProductivityRoute
@@ -297,16 +218,6 @@ export interface FileRoutesById {
   '/_app/roles': typeof AppRolesRoute
   '/_app/settings': typeof AppSettingsRoute
   '/_app/users': typeof AppUsersRoute
-  '/hr/_layout': typeof HrLayoutRoute
-  '/hr/attendance': typeof HrAttendanceRoute
-  '/hr/employees': typeof HrEmployeesRoute
-  '/hr/leave': typeof HrLeaveRoute
-  '/hr/onboarding': typeof HrOnboardingRoute
-  '/hr/payroll': typeof HrPayrollRoute
-  '/hr/recruitment': typeof HrRecruitmentRoute
-  '/hr/reports': typeof HrReportsRoute
-  '/hr/tracking': typeof HrTrackingRoute
-  '/hr/': typeof HrIndexRoute
   '/_app/labour/attendance': typeof AppLabourAttendanceRoute
   '/_app/labour/contractors': typeof AppLabourContractorsRoute
   '/_app/labour/productivity': typeof AppLabourProductivityRoute
@@ -334,16 +245,6 @@ export interface FileRouteTypes {
     | '/roles'
     | '/settings'
     | '/users'
-    | '/hr'
-    | '/hr/attendance'
-    | '/hr/employees'
-    | '/hr/leave'
-    | '/hr/onboarding'
-    | '/hr/payroll'
-    | '/hr/recruitment'
-    | '/hr/reports'
-    | '/hr/tracking'
-    | '/hr/'
     | '/labour/attendance'
     | '/labour/contractors'
     | '/labour/productivity'
@@ -369,15 +270,6 @@ export interface FileRouteTypes {
     | '/roles'
     | '/settings'
     | '/users'
-    | '/hr'
-    | '/hr/attendance'
-    | '/hr/employees'
-    | '/hr/leave'
-    | '/hr/onboarding'
-    | '/hr/payroll'
-    | '/hr/recruitment'
-    | '/hr/reports'
-    | '/hr/tracking'
     | '/labour/attendance'
     | '/labour/contractors'
     | '/labour/productivity'
@@ -404,16 +296,6 @@ export interface FileRouteTypes {
     | '/_app/roles'
     | '/_app/settings'
     | '/_app/users'
-    | '/hr/_layout'
-    | '/hr/attendance'
-    | '/hr/employees'
-    | '/hr/leave'
-    | '/hr/onboarding'
-    | '/hr/payroll'
-    | '/hr/recruitment'
-    | '/hr/reports'
-    | '/hr/tracking'
-    | '/hr/'
     | '/_app/labour/attendance'
     | '/_app/labour/contractors'
     | '/_app/labour/productivity'
@@ -433,16 +315,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  HrLayoutRoute: typeof HrLayoutRoute
-  HrAttendanceRoute: typeof HrAttendanceRoute
-  HrEmployeesRoute: typeof HrEmployeesRoute
-  HrLeaveRoute: typeof HrLeaveRoute
-  HrOnboardingRoute: typeof HrOnboardingRoute
-  HrPayrollRoute: typeof HrPayrollRoute
-  HrRecruitmentRoute: typeof HrRecruitmentRoute
-  HrReportsRoute: typeof HrReportsRoute
-  HrTrackingRoute: typeof HrTrackingRoute
-  HrIndexRoute: typeof HrIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -466,76 +338,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/': {
-      id: '/hr/'
-      path: '/hr'
-      fullPath: '/hr/'
-      preLoaderRoute: typeof HrIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/tracking': {
-      id: '/hr/tracking'
-      path: '/hr/tracking'
-      fullPath: '/hr/tracking'
-      preLoaderRoute: typeof HrTrackingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/reports': {
-      id: '/hr/reports'
-      path: '/hr/reports'
-      fullPath: '/hr/reports'
-      preLoaderRoute: typeof HrReportsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/recruitment': {
-      id: '/hr/recruitment'
-      path: '/hr/recruitment'
-      fullPath: '/hr/recruitment'
-      preLoaderRoute: typeof HrRecruitmentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/payroll': {
-      id: '/hr/payroll'
-      path: '/hr/payroll'
-      fullPath: '/hr/payroll'
-      preLoaderRoute: typeof HrPayrollRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/onboarding': {
-      id: '/hr/onboarding'
-      path: '/hr/onboarding'
-      fullPath: '/hr/onboarding'
-      preLoaderRoute: typeof HrOnboardingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/leave': {
-      id: '/hr/leave'
-      path: '/hr/leave'
-      fullPath: '/hr/leave'
-      preLoaderRoute: typeof HrLeaveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/employees': {
-      id: '/hr/employees'
-      path: '/hr/employees'
-      fullPath: '/hr/employees'
-      preLoaderRoute: typeof HrEmployeesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/attendance': {
-      id: '/hr/attendance'
-      path: '/hr/attendance'
-      fullPath: '/hr/attendance'
-      preLoaderRoute: typeof HrAttendanceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hr/_layout': {
-      id: '/hr/_layout'
-      path: '/hr'
-      fullPath: '/hr'
-      preLoaderRoute: typeof HrLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app/users': {
@@ -742,16 +544,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  HrLayoutRoute: HrLayoutRoute,
-  HrAttendanceRoute: HrAttendanceRoute,
-  HrEmployeesRoute: HrEmployeesRoute,
-  HrLeaveRoute: HrLeaveRoute,
-  HrOnboardingRoute: HrOnboardingRoute,
-  HrPayrollRoute: HrPayrollRoute,
-  HrRecruitmentRoute: HrRecruitmentRoute,
-  HrReportsRoute: HrReportsRoute,
-  HrTrackingRoute: HrTrackingRoute,
-  HrIndexRoute: HrIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
