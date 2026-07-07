@@ -1,6 +1,15 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { HardHat, ArrowRight, ShieldCheck, Package, HardHat as Hat, BarChart3 } from "lucide-react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import {
+  HardHat,
+  ArrowRight,
+  ShieldCheck,
+  Package,
+  HardHat as Hat,
+  BarChart3,
+  BriefcaseBusiness,
+} from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { useDemo } from "@/store/DemoStore";
 
 export const Route = createFileRoute("/")({
@@ -19,6 +28,7 @@ const highlights = [
   { icon: Package, text: "Material request → PO → GRN → stock" },
   { icon: Hat, text: "Labour attendance & productivity" },
   { icon: BarChart3, text: "Real-time project health analytics" },
+  { icon: BriefcaseBusiness, text: "Separate HR module with employee tracking" },
 ];
 
 function Login() {
@@ -35,7 +45,10 @@ function Login() {
       <div className="relative hidden flex-col justify-between overflow-hidden bg-sidebar p-12 text-sidebar-foreground lg:flex">
         <div
           className="absolute inset-0 opacity-[0.07]"
-          style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "28px 28px" }}
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "28px 28px",
+          }}
         />
         <div className="relative flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sidebar-primary text-sidebar-primary-foreground">
@@ -43,7 +56,9 @@ function Login() {
           </div>
           <div>
             <div className="text-lg font-bold text-white">Axita Infrastructure</div>
-            <div className="text-xs text-sidebar-foreground/60">Enterprise Construction Platform</div>
+            <div className="text-xs text-sidebar-foreground/60">
+              Enterprise Construction Platform
+            </div>
           </div>
         </div>
         <div className="relative max-w-md">
@@ -51,18 +66,24 @@ function Login() {
             Project control, material flow, labour tracking, and real-time construction visibility.
           </h1>
           <p className="mt-4 text-sidebar-foreground/70">
-            Enterprise construction management platform for project control, materials, labour, DPR, approvals, and analytics — across 21 live projects.
+            Enterprise construction management platform for project control, materials, labour, DPR,
+            approvals, and analytics — across 21 live projects.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-3">
             {highlights.map((h) => (
-              <div key={h.text} className="flex items-center gap-2.5 rounded-lg bg-sidebar-accent/40 px-3 py-2.5">
+              <div
+                key={h.text}
+                className="flex items-center gap-2.5 rounded-lg bg-sidebar-accent/40 px-3 py-2.5"
+              >
                 <h.icon className="h-4 w-4 text-sidebar-primary shrink-0" />
                 <span className="text-xs text-sidebar-foreground/90">{h.text}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="relative text-xs text-sidebar-foreground/40">© 2026 Axita Infrastructure Pvt Ltd · Interactive product demo</div>
+        <div className="relative text-xs text-sidebar-foreground/40">
+          © 2026 Axita Infrastructure Pvt Ltd · Interactive product demo
+        </div>
       </div>
 
       {/* Login panel */}
@@ -75,14 +96,31 @@ function Login() {
             <span className="text-lg font-bold">Axita Infrastructure</span>
           </div>
           <h2 className="text-2xl font-bold tracking-tight">Sign in to continue</h2>
-          <p className="mt-1 text-sm text-muted-foreground">Choose a role to explore the demo with tailored permissions.</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Choose a role to explore the demo with tailored permissions.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Button asChild variant="outline">
+              <Link to="/hr">Open HR module</Link>
+            </Button>
+            <Button asChild variant="secondary">
+              <Link to="/dashboard">Open main ERP</Link>
+            </Button>
+          </div>
           <div className="mt-6 space-y-3">
             {logins.map((l) => (
-              <button key={l.role} onClick={() => signIn(l.role, l.name)} className="w-full text-left">
+              <button
+                key={l.role}
+                onClick={() => signIn(l.role, l.name)}
+                className="w-full text-left"
+              >
                 <Card className="group flex-row items-center justify-between gap-3 p-4 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
                   <div className="flex items-center gap-3">
                     <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
-                      {l.name.split(" ").map((n) => n[0]).join("")}
+                      {l.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
                     </span>
                     <div>
                       <div className="text-sm font-semibold">Login as {l.role}</div>
